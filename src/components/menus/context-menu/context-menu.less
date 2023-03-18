@@ -1,0 +1,30 @@
+:root {
+  --app-context-menu-background: #fff;
+}
+
+:root[data-theme='dark'] {
+  --app-context-menu-background: rgba(40, 40, 51, 1);
+}
+
+.app-context-menu {
+  --left: unset;
+  --right: unset;
+  --top: unset;
+  --bottom: unset;
+  --width: unset;
+  --height: unset;
+
+  background-color: var(--app-context-menu-background);
+  padding: 16px;
+  position: fixed;
+  z-index: 9999;
+  top: var(--top);
+  left: var(--left);
+  right: var(--right);
+  bottom: var(--bottom);
+  width: var(--width);
+  height: var(--height);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--app-shadow);
+  border-radius: var(--app-radius);
+}

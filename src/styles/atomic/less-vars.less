@@ -1,0 +1,62 @@
+@color_blue: var(--ac-color-blue);
+@color_green: var(--ac-color-green);
+@color_yellow: var(--ac-color-yellow);
+@color_red: var(--ac-color-red);
+@color_white: var(--ac-color-white);
+
+@color_primary: var(--ac-color-primary);
+@color_primary_light: var(--ac-color-primary-light);
+@color_primary_dark: var(--ac-color-primary-dark);
+
+@color_info: @color_blue;
+@color_success: @color_green;
+@color_warn: @color_yellow;
+@color_error: @color_red;
+
+@color_background: var(--ac-color-background);
+@color_transparent: var(--ac-color-transparent);
+
+@color_default: var(--ac-color-text-default);
+@color_title: var(--ac-color-text-title);
+@color_gray: var(--ac-color-text-gray);
+@color_light: var(--ac-color-text-light);
+@color_disabled: var(--ac-color-text-disabled);
+@color_placeholder: var(--ac-color-text-placeholder);
+
+@color_border: var(--ac-color-border);
+@color_border_split: var(--ac-color-border);
+
+@color_shadow: rgba(0, 0, 0, 0.06);
+
+@size_names: xs, sm, md, lg, xl;
+
+@m_xs: var(--ac-padding-xs);
+@m_sm: var(--ac-padding-sm);
+@m_md: var(--ac-padding-md);
+@m_lg: var(--ac-padding-lg);
+@m_xl: var(--ac-padding-xl);
+
+@p_xs: var(--ac-padding-xs);
+@p_sm: var(--ac-padding-sm);
+@p_md: var(--ac-padding-md);
+@p_lg: var(--ac-padding-lg);
+@p_xl: var(--ac-padding-xl);
+
+// @media_xs: 375px;
+// @media_sm: 640px;
+// @media_md: 768px;
+// @media_lg: 1000px;
+// @media_max: 1200px;
+
+// 颜色集 用于遍历, 值为所定义的颜色变量后半部分 : @color_{value}
+@colors: transparent, white, primary, info, success, warn, error, blue, green, yellow, red, title, default, gray, light,
+  disabled, background;
+
+// Animation
+@animation_duration_base: 0.3s;
+@animation_duration_fast: 0.2s;
+@animation_timing_function_enter: ease-out;
+@animation_timing_function_leave: ease-in;
+@animation_fade_out: cubic-bezier(0.175, 0.82, 0.265, 1);
+@animation_fade_in: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+@animation_out_back: cubic-bezier(0.68, -0.55, 0.265, 1.55);

@@ -1,0 +1,76 @@
+:root {
+  --app-titlebar-background: rgba(255, 255, 255, 0.25);
+  --app-titlebar-text-color: var(--ac-color-text-title);
+  --app-titlebar-height: 32px;
+  --app-titlebar-padding: var(--ac-padding-md);
+
+  --app-titlebar-btn-color: var(--ac-color-text-default);
+  --app-titlebar-btn-hover-background: rgba(0, 0, 0, 0.1);
+  --app-titlebar-btn-close-background: var(--ac-color-error);
+  --app-titlebar-btn-close-hover-color: #fff;
+}
+
+:root[data-theme='dark'] {
+  --app-titlebar-background: rgba(46, 52, 64, 0.25);
+  --app-titlebar-btn-hover-background: rgba(255, 255, 255, 0.1);
+  --app-titlebar-text-color: #fff;
+}
+
+.app-titlebar {
+  user-select: none;
+  background-color: var(--app-titlebar-background);
+  height: var(--app-titlebar-height);
+  padding-left: var(--app-titlebar-padding);
+  border-bottom: 1px solid var(--ac-color-border);
+  position: relative;
+
+  .title-text {
+    color: var(--app-titlebar-text-color);
+  }
+
+  .titlebar-controller {
+    height: 100%;
+    .titlebar-btn {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 12px;
+      transition: all 0.2s;
+      color: var(--app-titlebar-btn-color);
+      &:hover {
+        background-color: var(--app-titlebar-btn-hover-background);
+      }
+
+      &.titlebar-btn-close {
+        &:hover {
+          background-color: var(--app-titlebar-btn-close-background);
+          color: var(--app-titlebar-btn-close-hover-color);
+        }
+      }
+    }
+
+    .always-on-top {
+      .icon-pin {
+        transition: transform 0.2s;
+        transform: rotate(45deg);
+      }
+
+      &.active {
+        .icon-pin {
+          transform: rotate(0deg);
+        }
+      }
+    }
+  }
+}
+
+// Mac 下无侧边栏时标题居中对齐
+// .darwin {
+//   .app-titlebar {
+//     .title-content {
+//       text-align: center;
+//       justify-content: center;
+//     }
+//   }
+// }

@@ -1,0 +1,85 @@
+.text {
+  &-center {
+    text-align: center;
+  }
+  &-left {
+    text-align: left;
+  }
+  &-right {
+    text-align: right;
+  }
+  &-ellipsis {
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    white-space: normal;
+    &.l-2 {
+      -webkit-line-clamp: 2;
+    }
+    &.l-3 {
+      -webkit-line-clamp: 3;
+    }
+    &.l-4 {
+      -webkit-line-clamp: 4;
+    }
+  }
+  &-wrap {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-all;
+  }
+  &-nowrap {
+    word-wrap: keep-all;
+    white-space: nowrap;
+  }
+  // 大写字母
+  &-up {
+    text-transform: uppercase;
+  }
+
+  // 小写字母
+  &-low {
+    text-transform: lowercase;
+  }
+
+  // 删除线
+  &-del {
+    text-decoration: line-through;
+  }
+}
+
+// 字体大小 fs-{size} [8-60]
+// 行高 lh-{size} [8-60]
+.loopFontSize(@i) when (@i <=60) {
+  .fs-@{i} {
+    font-size: @i * 1px;
+  }
+  .lh-@{i} {
+    line-height: @i * 1px;
+  }
+  .loopFontSize(@i + 1);
+}
+.loopFontSize(8);
+
+// 控制字体粗细 fw-{num} [100-900] , fw-500
+.loopFontWeight(@i) when (@i <=9) {
+  @ix100: @i*100;
+  .fw-@{ix100} {
+    font-weight: @ix100;
+  }
+  .loopFontWeight(@i+1);
+}
+.loopFontWeight(1);
+
+// 文字间距 ls-{number} 0 - 48
+.loopLetterSpacing(@i) when (@i <= 24) {
+  @size: @i*2;
+  .ls-@{size} {
+    letter-spacing: @i * 1px;
+  }
+  .loopLetterSpacing(@i + 1);
+}
+.loopLetterSpacing(0);

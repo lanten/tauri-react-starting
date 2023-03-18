@@ -1,0 +1,90 @@
+.full-screen {
+  height: 100%;
+}
+
+.full-screen-min {
+  min-height: 100%;
+}
+
+.full-screen-vh {
+  height: 100vh;
+}
+
+.full-screen-vh-min {
+  min-height: 100vh;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.ovh {
+  overflow: hidden;
+}
+
+.ovh-y {
+  overflow-y: hidden;
+}
+
+.ovh-x {
+  overflow-x: hidden;
+}
+
+.ova {
+  overflow: auto;
+}
+
+.ova-y {
+  overflow-y: auto;
+}
+
+.ova-x {
+  overflow-x: auto;
+}
+
+.ovv {
+  overflow: visible;
+}
+
+.ovv-y {
+  overflow-y: visible;
+}
+
+.ovv-x {
+  overflow-x: visible;
+}
+
+.container-layout {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--ac-padding-md);
+  padding-right: var(--ac-padding-md);
+
+  &.max-1000 {
+    max-width: 1000px;
+  }
+
+  &.max-1200 {
+    max-width: 1200px;
+  }
+}
+
+// ios 顶部安全区域
+.safe-area-top {
+  padding-top: constant(safe-area-inset-top);
+  padding-top: env(safe-area-inset-top);
+}
+
+// ios 底部安全区域
+.safe-area-bottom {
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}

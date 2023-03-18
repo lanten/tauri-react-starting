@@ -1,0 +1,213 @@
+:root {
+  --ac-animation-duration: 0.2s;
+  --ac-animation-timing-enter: ease-in;
+  --ac-animation-timing-leave: ease-out;
+
+  --ac-animation-timing-fade-out: cubic-bezier(0.175, 0.82, 0.265, 1);
+}
+
+@keyframes ac-spin {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes ac-slide-up-enter {
+  from {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes ac-slide-up-leave {
+  to {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes ac-slide-down-enter {
+  from {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes ac-slide-down-leave {
+  to {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes ac-slide-left-enter {
+  from {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes ac-slide-left-leave {
+  to {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes ac-slide-right-enter {
+  from {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes ac-slide-right-leave {
+  to {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes ac-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes ac-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes ac-zoom-in {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes ac-zoom-out {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes ac-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ac-fade {
+  &-enter-active {
+    animation: var(--ac-animation-duration) ac-fade-in both var(--ac-animation-timing-enter);
+  }
+  &-exit-active {
+    animation: var(--ac-animation-duration) ac-fade-out both var(--ac-animation-timing-leave);
+  }
+}
+
+.ac-slide-up {
+  &-enter-active {
+    animation: var(--ac-animation-duration) ac-slide-up-enter both var(--ac-animation-timing-enter);
+  }
+
+  &-exit-active {
+    animation: var(--ac-animation-duration) ac-slide-up-leave both var(--ac-animation-timing-leave);
+  }
+}
+
+.ac-slide-down {
+  &-enter-active {
+    animation: ac-slide-down-enter var(--ac-animation-duration) both var(--ac-animation-timing-enter);
+  }
+
+  &-exit-active {
+    animation: ac-slide-down-leave var(--ac-animation-duration) both var(--ac-animation-timing-leave);
+  }
+}
+
+.ac-slide-left {
+  &-enter-active {
+    animation: ac-slide-left-enter var(--ac-animation-duration) both var(--ac-animation-timing-enter);
+  }
+
+  &-exit-active {
+    animation: ac-slide-left-leave var(--ac-animation-duration) both var(--ac-animation-timing-leave);
+  }
+}
+
+.ac-slide-right {
+  &-enter-active {
+    animation: ac-slide-right-enter var(--ac-animation-duration) both var(--ac-animation-timing-enter);
+  }
+
+  &-exit-active {
+    animation: ac-slide-right-leave var(--ac-animation-duration) both var(--ac-animation-timing-leave);
+  }
+}
+
+.ac-zoom {
+  &-enter-active {
+    animation: var(--ac-animation-duration) ac-zoom-in both var(--ac-animation-timing-enter);
+  }
+  &-exit-active {
+    animation: var(--ac-animation-duration) ac-zoom-out both var(--ac-animation-timing-leave);
+  }
+}
+
+// ---
+
+@keyframes ac-move-fade-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(-12px, -12px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes ac-move-fade-leave {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(-12px, -12px, 0);
+  }
+}
+
+.ac-move-fade {
+  &-enter-active {
+    animation: ac-move-fade-enter var(--ac-animation-duration) both var(--ac-animation-timing-enter);
+  }
+
+  &-exit-active {
+    animation: ac-move-fade-leave var(--ac-animation-duration) both var(--ac-animation-timing-leave);
+  }
+}

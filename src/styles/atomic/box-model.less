@@ -1,0 +1,57 @@
+.render-model(@attr,@name,@size) {
+  @attr-name: ~`(() => {
+    if('@{attr}' == 'm') {
+      return 'margin';
+    } else {
+      return 'padding';
+    }
+  })()`;
+
+  // @d:~`console.log("@{attr-name}","@{name}")`;
+
+  .@{attr}-@{name} {
+    @{attr-name}: @size;
+  }
+  .@{attr}t-@{name} {
+    @{attr-name}-top: @size;
+  }
+  .@{attr}l-@{name} {
+    @{attr-name}-left: @size;
+  }
+  .@{attr}r-@{name} {
+    @{attr-name}-right: @size;
+  }
+  .@{attr}b-@{name} {
+    @{attr-name}-bottom: @size;
+  }
+}
+
+// xs, sm, md, lg, xl
+.loopSizes-box(@i) when (@i > 0) {
+  @name: extract(@size_names, @i);
+
+  @pv:'p_@{name}';
+  @mv:'p_@{name}';
+
+  // @d:~`console.log("@{i}","@{name}")`;
+
+  .render-model(m,@name,@@mv);
+  .render-model(p,@name,@@pv);
+  .loopSizes-box((@i - 1));
+}
+.loopSizes-box(length(@size_names));
+
+// 盒模型 size:[0 - 48](2 的整数倍) m-{size} ml-{size} mr-{size} mt-{size} mb-{size}
+.loopBox(@i) when (@i >= 0) {
+  @size: @i*2;
+  @sizePx: @size*1px;
+
+  .render-model(m,@size,@sizePx);
+  .render-model(p,@size,@sizePx);
+  .loopBox(@i - 1);
+}
+.loopBox(24);
+
+.bs-box{
+  box-sizing: border-box;
+}

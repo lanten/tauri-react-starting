@@ -1,0 +1,74 @@
+@import './less-vars.less';
+
+// 圆角 br-{num} [1-24] , br-4
+.loopBorderRadius(@i) when (@i <= 24) {
+  .br-@{i} {
+    border-radius: @i * 1px;
+  }
+  .loopBorderRadius(@i+1);
+}
+.loopBorderRadius(0);
+
+// 边框 .border.top-{num} [0-6]
+.border {
+  border-color: var(--ac-color-border);
+  border-style: solid;
+  border-width: 0;
+
+  .loopBorderRect(@i) when (@i <= 6) {
+    &.rect-@{i} {
+      border-width: @i * 1px;
+    }
+
+    &.top-@{i} {
+      border-top-width: @i * 1px;
+    }
+
+    &.bottom-@{i} {
+      border-bottom-width: @i * 1px;
+    }
+
+    &.left-@{i} {
+      border-left-width: @i * 1px;
+    }
+
+    &.right-@{i} {
+      border-right-width: @i * 1px;
+    }
+
+    .loopBorderRect(@i+1);
+  }
+  .loopBorderRect(0);
+
+  &.split {
+    border-color: var(--ac-color-border-split);
+  }
+
+  &.hide {
+    border-width: 0;
+  }
+
+  &.hide-last {
+    &:last-child {
+      border-width: 0;
+    }
+  }
+
+  &.hide-first {
+    &:first-child {
+      border-width: 0;
+    }
+  }
+}
+
+// @colors 遍历
+// 边框颜色 bc-{name}
+.loopBorderColors(@i) when (@i > 0) {
+  @name: extract(@colors, @i);
+  @nameV: 'color_@{name}';
+  .bc-@{name} {
+    border-color: @@nameV;
+  }
+  .loopBorderColors((@i - 1));
+}
+.loopBorderColors(length(@colors));

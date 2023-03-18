@@ -1,0 +1,90 @@
+.flex {
+  display: flex;
+
+  &.row {
+    flex-direction: row;
+  }
+
+  &.column, &.col {
+    flex-direction: column;
+  }
+
+  &.center {
+    justify-content: center;
+    align-items: center;
+  }
+
+  &.center-h {
+    justify-content: center;
+  }
+
+  &.center-v {
+    align-items: center;
+  }
+
+  &.between {
+    justify-content: space-between;
+  }
+
+  &.around {
+    justify-content: space-around;
+  }
+
+  &.end-v {
+    align-items: flex-end;
+  }
+
+  &.end-h {
+    justify-content: flex-end;
+  }
+
+  &.start-v {
+    align-items: flex-start;
+  }
+
+  &.start-h {
+    justify-content: flex-start;
+  }
+}
+
+// flex-{1-12}
+.loopFlex(@i) when (@i > 0) {
+  .flex-@{i} {
+    flex: @i;
+  }
+  .loopFlex(@i - 1);
+}
+.loopFlex(12);
+
+// gap-{0-48} 2 的整数倍
+.loopGap(@i) when (@i >= 0) {
+  .gap-@{i} {
+    gap: ~'@{i}px';
+  }
+  .loopGap(@i - 2);
+}
+.loopGap(48);
+
+// xs, sm, md, lg, xl
+.loopSizes-gap(@i) when (@i > 0) {
+  @name: extract(@size_names, @i);
+  @pv:'p_@{name}';
+
+  .gap-@{name}{
+    gap: @@pv;
+  }
+  .loopSizes-gap((@i - 1));
+}
+.loopSizes-gap(length(@size_names));
+
+.flex-none {
+  flex: none;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
