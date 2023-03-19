@@ -166,7 +166,11 @@ const Demo: React.FC<DemoProps> = () => {
         >
           IconfontDemo
         </button>
+      </div>
 
+      <div className="border top-1"></div>
+
+      <div className="flex row gap-8">
         <button
           onClick={() => {
             dialog.message('message dialog', { type: 'error' })
@@ -182,11 +186,6 @@ const Demo: React.FC<DemoProps> = () => {
         >
           confirm
         </button>
-      </div>
-
-      <div className="border top-1"></div>
-
-      <div className="flex row gap-8">
         <button
           onClick={() => {
             /// 通知回调功能暂未实现 see: https://github.com/tauri-apps/tauri/issues/3698
