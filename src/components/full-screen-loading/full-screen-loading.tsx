@@ -1,7 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
 
-import { Panel, PanelProps } from '@/components'
+import { Panel, PanelProps, Loading } from '@/components'
 
 import './full-screen-loading.less'
 
@@ -12,7 +12,9 @@ export const FullScreenLoading: React.FC<FullScreenLoadingProps> = ({ ...wrapPro
 
   return (
     <Panel shadow {...wrapProps}>
-      <span>loading...</span>
+      <div>
+        <Loading />
+      </div>
     </Panel>
   )
 }

@@ -44,12 +44,12 @@ export function initContextMenu(listenElement: HTMLElement | null = document.bod
     })
   }
 
-  listenElement.addEventListener('contextmenu', openListener)
-  document.addEventListener('click', closeContextMenu)
+  listenElement.addEventListener('contextmenu', openListener,{capture:true})
+  document.addEventListener('click', closeContextMenu,{capture:true})
 
   return () => {
-    listenElement.removeEventListener('contextmenu', openListener)
-    document.removeEventListener('click', closeContextMenu)
+    listenElement.removeEventListener('contextmenu', openListener,{capture:true})
+    document.removeEventListener('click', closeContextMenu,{capture:true})
   }
 }
 
@@ -64,4 +64,4 @@ export function closeContextMenu() {
 /** 禁用 webview 默认右键菜单 */
 document.addEventListener('contextmenu', (e) => {
   e.preventDefault()
-})
+},{capture:true})

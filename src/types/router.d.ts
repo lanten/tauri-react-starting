@@ -7,7 +7,7 @@ import type { CreateOptions } from '@/common/window'
  * 路由配置接口
  */
 declare global {
-  type RouteNames = 'Home' | 'Demo' | 'PageParams' | 'ErrorPage' | 'About'
+  type RouteNames = 'Home' | 'Demo' | 'PageParams' | 'ErrorPage' | 'About' | 'IconfontDemo'
 
   /** 页面默认 props */
   interface PageProps<P = Record<string, unknown>, Q = Record<string, unknown>, LocationState = unknown>

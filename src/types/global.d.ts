@@ -5,7 +5,7 @@ declare global {
 
   type ReactDivProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
-  type ReactBaseType = Pick<ReactDivProps, 'id' | 'children' | 'className' | 'style' | 'onClick' | 'onLoad'>
+  type ReactBaseType = Pick<ReactDivProps, 'id' | 'children' | 'className' | 'style' | 'onClick'>
 
   /** 获取 Promise 返回值 */
   type AwaitedResult<T> = T extends Promise<infer U> ? U : never

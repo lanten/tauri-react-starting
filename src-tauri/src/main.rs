@@ -3,7 +3,7 @@
     windows_subsystem = "windows"
 )]
 
-use tauri::Manager;
+// use tauri::Manager;
 
 mod invoke;
 mod tray;
@@ -28,25 +28,22 @@ fn main() {
                 create_window::open_window(app_handle, "Main".into(), "/".into(), None);
             }
 
-            tauri::RunEvent::WindowEvent { label, event, .. } => {
-                if label == "Main" {
-                    // 阻止关闭主窗口
-                    match event {
-                        tauri::WindowEvent::CloseRequested { api, .. } => {
-                            api.prevent_close();
-                            app_handle.get_window("Main").map(|win| win.hide());
-                        }
-                        _ => {}
-                    }
-                }
-            }
+            // tauri::RunEvent::WindowEvent { label, event, .. } => {
+            //     if label == "Main" {
+            //         // 阻止关闭主窗口
+            //         match event {
+            //             tauri::WindowEvent::CloseRequested { api, .. } => {
+            //                 api.prevent_close();
+            //                 app_handle.get_window("Main").map(|win| win.hide());
+            //             }
+            //             _ => {}
+            //         }
+            //     }
+            // }
 
             tauri::RunEvent::ExitRequested { api, .. } => {
                 // 阻止退出程序
                 api.prevent_exit();
-                // app_handle.get_window("Main").map(|win| {
-                //     let _ = win.hide();
-                // });
             }
             _ => {}
         });

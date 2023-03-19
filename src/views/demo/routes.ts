@@ -14,4 +14,11 @@ export const autoRoutes: RouteConfig[] = [
     element: import('./page-params'),
     useContextMenu: true,
   },
+
+  {
+    name: 'IconfontDemo',
+    title: 'Iconfont Demo',
+    path: 'iconfont-demo',
+    element: import('./iconfont-demo'),
+  },
 ]

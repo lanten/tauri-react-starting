@@ -4,15 +4,16 @@
 // 字体颜色 text-{name}
 // 背景颜色 bg-{name}
 .loopColors(@i) when (@i > 0) {
-	@name: extract(@colors, @i);
-	// @val: extract(@color-val, @n);
-	@nameV: 'color_@{name}';
-	.bg-@{name} {
-		background-color: @@nameV;
-	}
-	.color-@{name} {
-		color: @@nameV;
-	}
-	.loopColors((@i - 1));
+  @name: extract(@colors, @i);
+  // @val: extract(@color-val, @n);
+  @nameV: 'color_@{name}';
+  .bg-@{name},
+  .bgh-@{name}:hover {
+    background-color: @@nameV;
+  }
+  .color-@{name} {
+    color: @@nameV;
+  }
+  .loopColors((@i - 1));
 }
 .loopColors(length(@colors));

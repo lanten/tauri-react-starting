@@ -3,7 +3,6 @@ import {
   appWindow,
   LogicalSize,
   LogicalPosition,
-  WebviewWindow,
   type PhysicalSize,
   type PhysicalPosition,
 } from '@tauri-apps/api/window'
@@ -35,6 +34,7 @@ const Demo: React.FC<DemoProps> = () => {
 
     return () => {
       moveL.then((unlisten) => unlisten())
+      resizeL.then((unlisten) => unlisten())
     }
   }, [])
 
@@ -158,6 +158,13 @@ const Demo: React.FC<DemoProps> = () => {
           }}
         >
           About
+        </button>
+        <button
+          onClick={() => {
+            $.window.createWindow('IconfontDemo')
+          }}
+        >
+          IconfontDemo
         </button>
 
         <button

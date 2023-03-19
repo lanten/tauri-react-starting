@@ -9,7 +9,6 @@ export interface PanelProps extends ReactBaseType {
   bordered?: boolean
   title?: string
   titleRightNode?: React.ReactNode
-  transparent?: boolean
 }
 
 export const Panel: React.FC<PanelProps> = ({
@@ -18,16 +17,13 @@ export const Panel: React.FC<PanelProps> = ({
   hoverable,
   bordered,
   title,
-  transparent,
   titleRightNode,
   ...wrapProps
 }) => {
   wrapProps.className = clsx(wrapProps.className, 'gp-panel br-md p-md', {
     'shadow-lg': shadow,
-    'bg-white': !transparent,
     hoverable,
     bordered,
-    transparent,
     'pt-0': !!title,
   })
 

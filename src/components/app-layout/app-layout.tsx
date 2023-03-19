@@ -17,6 +17,7 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children, contentProps = {
 
   layoutProps['data-route'] = name
   layoutProps.className = clsx(layoutProps.className, 'app-layout flex column theme-light')
+  contentProps.className = clsx(contentProps.className, 'app-layout-content')
 
   React.useEffect(() => {
     let unlisten: Function | undefined = undefined

@@ -9,6 +9,11 @@
   --app-shadow: 2px 3px 8px 0px rgba(0, 0, 0, 0.1);
   --app-radius: 8px;
 
+  --app-scrollbar-size: 11px;
+  --app-scrollbar-thumb-bg: rgba(var(--ac-color-front-rgb), 0.25);
+  --app-scrollbar-track-bg: rgba(var(--ac-color-front-rgb), 0.15);
+  --app-scrollbar-thumb-hover-bg: rgba(var(--ac-color-front-rgb), 0.45);
+
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 14px;
   text-rendering: optimizeLegibility;
@@ -28,6 +33,14 @@ a {
   }
 }
 
+h1,
+h2,
+h3,
+b,
+strong {
+  color: var(--ac-color-text-title);
+}
+
 html {
   position: relative;
   overflow: hidden;
@@ -44,4 +57,24 @@ button,
 img,
 .iconfont {
   user-select: none;
+}
+
+::-webkit-scrollbar {
+  height: var(--app-scrollbar-size);
+  width: var(--app-scrollbar-size);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  border: 1px solid var(--app-scrollbar-track-bg);
+  background-color: var(--app-scrollbar-thumb-bg);
+}
+
+::-webkit-scrollbar-track {
+  // border-radius: 10px;
+  background-color: var(--app-scrollbar-track-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--app-scrollbar-thumb-hover-bg);
 }

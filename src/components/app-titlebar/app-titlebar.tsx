@@ -29,7 +29,7 @@ export const AppTitlebar: React.FC<AppTitlebarProps> = ({
   const [maximized, setMaximized] = React.useState(false)
   const [alwaysOnTop, setAlwaysOnTop] = React.useState(false)
 
-  wrapProps.className = clsx(wrapProps.className, 'app-titlebar flex center-v')
+  wrapProps.className = clsx(wrapProps.className, 'app-titlebar flex center-v flex-none')
 
   React.useEffect(() => {
     if (['activated', 'activated-hide'].includes(alwaysOnTopButton as string)) {

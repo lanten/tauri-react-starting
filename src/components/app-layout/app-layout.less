@@ -3,6 +3,13 @@
   height: 100vh;
   background-color: var(--ac-color-background);
   overflow: hidden;
+
+  .app-layout-content{
+    position: relative;
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 [data-platform='darwin'] .app-layout {
