@@ -8,6 +8,7 @@
 mod invoke;
 mod tray;
 mod window;
+mod tools;
 
 use tray::create_tray::{create_app_tray, tray_event_handler};
 use window::create_window;
@@ -40,7 +41,6 @@ fn main() {
             //         }
             //     }
             // }
-
             tauri::RunEvent::ExitRequested { api, .. } => {
                 // 阻止退出程序
                 api.prevent_exit();
