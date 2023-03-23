@@ -10,6 +10,7 @@ import {
 import { dialog, notification } from '@tauri-apps/api'
 
 import { dispatchGlobalStore } from '@/store'
+import { openMenuPopup } from '@/components'
 
 interface DemoProps extends PageProps {}
 
@@ -196,6 +197,40 @@ const Demo: React.FC<DemoProps> = () => {
           }}
         >
           notification
+        </button>
+      </div>
+
+      <div className="flex row gap-8 border top-1 pt-md">
+        <button
+          onClick={(e) => {
+            openMenuPopup({ children: 'bottom-left content', target: e.target, position: 'bottom-left' })
+          }}
+        >
+          menu
+        </button>
+
+        <button
+          onClick={(e) => {
+            openMenuPopup({ children: 'top-left content', target: e.target, position: 'top-left' })
+          }}
+        >
+          top-left
+        </button>
+
+        <button
+          onClick={(e) => {
+            openMenuPopup({ children: 'bottom-right content', target: e.target, position: 'bottom-right' })
+          }}
+        >
+          bottom-right
+        </button>
+
+        <button
+          onClick={(e) => {
+            openMenuPopup({ children: 'top-right content', target: e.target, position: 'top-right' })
+          }}
+        >
+          top-right
         </button>
       </div>
     </div>

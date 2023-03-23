@@ -1,0 +1,38 @@
+:root {
+  --app-menu-popup-background: #fff;
+}
+
+:root[data-theme='dark'] {
+  --app-menu-popup-background: rgba(40, 40, 51, 1);
+}
+
+.app-menu-popup-background {
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.app-menu-popup {
+  --left: unset;
+  --right: unset;
+  --top: unset;
+  --bottom: unset;
+  --width: unset;
+  --height: unset;
+
+  background-color: var(--app-menu-popup-background);
+  padding: 16px;
+  position: fixed;
+  top: var(--top);
+  left: var(--left);
+  right: var(--right);
+  bottom: var(--bottom);
+  width: var(--width);
+  height: var(--height);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--app-shadow);
+  border-radius: var(--app-radius);
+}

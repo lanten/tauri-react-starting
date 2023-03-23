@@ -2,6 +2,7 @@ import React from 'react'
 import clsx from 'clsx'
 import { appWindow } from '@tauri-apps/api/window'
 
+import { openTitlebarMenu } from '@/components'
 import { useGlobalStore } from '@/store'
 
 import './app-titlebar.less'
@@ -24,6 +25,8 @@ export const AppTitlebar: React.FC<AppTitlebarProps> = ({
   alwaysOnTopButton = false,
   ...wrapProps
 }) => {
+  const titleBarMenuRef = React.useRef<HTMLDivElement>(null)
+
   const { title } = useGlobalStore(['title'])
 
   const [maximized, setMaximized] = React.useState(false)
@@ -86,7 +89,14 @@ export const AppTitlebar: React.FC<AppTitlebarProps> = ({
       </div>
 
       <div className="titlebar-controller flex" data-tauri-drag-region>
-        <div className="titlebar-btn" title="菜单" onClick={() => {}}>
+        <div
+          ref={titleBarMenuRef}
+          className="titlebar-btn"
+          title="菜单"
+          onClick={() => {
+            openTitlebarMenu({ target: titleBarMenuRef.current })
+          }}
+        >
           <i className="iconfont icon-menu fs-13" />
         </div>
 
