@@ -1,0 +1,37 @@
+:root {
+  --app-menu-item-padding: 6px 6px;
+  --app-menu-item-margin: 0 4px;
+  --app-menu-item-gap: 4px;
+  --app-menu-item-hover-background-color: rgba(var(--ac-color-front-rgb), 0.1);
+}
+
+.app-menu-group {
+  gap: var(--app-menu-item-gap);
+  user-select: none;
+}
+
+.app-menu-item {
+  padding: var(--app-menu-item-padding);
+  margin: var(--app-menu-item-margin);
+  transition: background-color 0.2s;
+  border-radius: var(--app-radius-sm);
+  color: var(--ac-color-text-gray);
+
+  &:hover:not(.disabled, .border.split) {
+    background-color: var(--app-menu-item-hover-background-color);
+  }
+
+  &.border.split {
+    margin: 0;
+    padding: 0;
+  }
+
+  &.disabled {
+    color: var(--ac-color-text-disabled);
+    // cursor: not-allowed;
+  }
+
+  .menu-icon {
+    margin-right: 6px;
+  }
+}

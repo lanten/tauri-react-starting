@@ -16,7 +16,6 @@ interface RectType {
 const DEFAULT_RECT: RectType = {
   left: 0,
   top: 0,
-  // width: 120,
 }
 
 export interface MenuPopupProps extends ReactBaseType {
@@ -109,15 +108,11 @@ export const MenuPopup: React.FC<MenuPopupProps> = ({
 
     // 修正位置, 防止菜单超出屏幕
     if (wrapRect.left + wrapRect.width > bodyRect.width) {
-      // nextRect.left = undefined
-      // nextRect.right = '0'
       wrapTarget.style.left = 'unset'
       wrapTarget.style.right = '0'
     }
 
     if (wrapRect.top + wrapRect.height > bodyRect.height) {
-      // nextRect.top = undefined
-      // nextRect.bottom = '0'
       wrapTarget.style.top = 'unset'
       wrapTarget.style.bottom = '0'
     }
@@ -128,7 +123,7 @@ export const MenuPopup: React.FC<MenuPopupProps> = ({
   return (
     <div
       className="app-menu-popup-background"
-      onClick={(e) => {
+      onMouseUp={(e) => {
         if (e.target === e.currentTarget) {
           onClose?.(e)
         }

@@ -1,7 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
 
-import { MenuPopup, type MenuPopupProps } from '@/components'
+import { MenuGroup, MenuItem, type MenuPopupProps } from '@/components'
 
 import './context-menu.less'
 
@@ -16,8 +16,15 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({ selectedText, target, 
 
   return (
     <div {...wrapProps}>
-      context-menu!!!
-      <div>{selectedText}</div>
+      <MenuGroup>
+        <MenuItem icon="meh">Text</MenuItem>
+        <MenuItem icon="attachment" disabled>
+          Disabled
+        </MenuItem>
+        <MenuItem split />
+        <MenuItem icon="copy">Copy</MenuItem>
+        <MenuItem icon="cut">Cut</MenuItem>
+      </MenuGroup>
     </div>
   )
 }

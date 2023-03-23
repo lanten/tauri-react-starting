@@ -3,5 +3,6 @@
   "cSpell.words": [
     "aarch",
     "Tempdir"
-  ]
+  ],
+  "create.defaultFileTemplate": "tsx"
 }

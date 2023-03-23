@@ -1,5 +1,6 @@
 :root {
   --app-menu-popup-background: #fff;
+  --app-menu-popup-padding: 4px 0;
 }
 
 :root[data-theme='dark'] {
@@ -23,8 +24,6 @@
   --width: unset;
   --height: unset;
 
-  background-color: var(--app-menu-popup-background);
-  padding: 16px;
   position: fixed;
   top: var(--top);
   left: var(--left);
@@ -32,7 +31,9 @@
   bottom: var(--bottom);
   width: var(--width);
   height: var(--height);
-  backdrop-filter: blur(16px);
+  background-color: var(--app-menu-popup-background);
+  // backdrop-filter: blur(16px);
   box-shadow: var(--app-shadow);
-  border-radius: var(--app-radius);
+  padding: var(--app-menu-popup-padding);
+  border-radius: var(--app-radius-md);
 }

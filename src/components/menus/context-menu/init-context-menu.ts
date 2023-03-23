@@ -20,7 +20,7 @@ export function initContextMenu(listenElement: HTMLElement | null = document.bod
       autoPositionByTarget: false,
       animationType: 'ac-move',
       selectedText: document.getSelection()?.toString(),
-      rect: { left: x, top: y, width: 200, height: 200 },
+      rect: { left: x, top: y, width: 140 },
     })
   }
 
