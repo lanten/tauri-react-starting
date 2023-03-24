@@ -123,7 +123,7 @@ export const MenuPopup: React.FC<MenuPopupProps> = ({
   return (
     <div
       className="app-menu-popup-background"
-      onMouseUp={(e) => {
+      onMouseDown={(e) => {
         if (e.target === e.currentTarget) {
           onClose?.(e)
         }

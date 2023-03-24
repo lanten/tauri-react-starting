@@ -15,7 +15,7 @@ import { openMenuPopup } from '@/components'
 interface DemoProps extends PageProps {}
 
 const Demo: React.FC<DemoProps> = () => {
-  const [nextTitle, setNextTitle] = React.useState<string>('new window title')
+  const [nextTitle, setNextTitle] = React.useState<string>('New window title')
   const [windowSize, setWindowSize] = React.useState<PhysicalSize>()
   const [windowPosition, setWindowPosition] = React.useState<PhysicalPosition>()
 
@@ -55,20 +55,20 @@ const Demo: React.FC<DemoProps> = () => {
             dispatchGlobalStore({ title: nextTitle }) // app-titlebar
           }}
         >
-          set title
+          Set title
         </button>
         <button
           onClick={() => {
             $.navigation.navigateTo('Home')
           }}
         >
-          to home
+          Back to home
         </button>
-        <p>right click to open context menu</p>
+        <p>Right click to open context menu</p>
       </div>
 
-      <p>windowSize: {JSON.stringify(windowSize)}</p>
-      <div className="flex row gap-8">
+      <p>WindowSize: {JSON.stringify(windowSize)}</p>
+      <div className="flex row center-v gap-8">
         <button
           onClick={async () => {
             const innerSize = await appWindow.innerSize()
@@ -77,7 +77,7 @@ const Demo: React.FC<DemoProps> = () => {
             sizeInputHRef.current!.value = innerSize.height + ''
           }}
         >
-          get window size
+          Get window size
         </button>
         W:
         <input type="text" style={{ width: 50 }} ref={sizeInputWRef} />
@@ -90,12 +90,12 @@ const Demo: React.FC<DemoProps> = () => {
             )
           }}
         >
-          set window size
+          Set window size
         </button>
       </div>
 
-      <p>windowPosition: {JSON.stringify(windowPosition)}</p>
-      <div className="flex row gap-8">
+      <p>WindowPosition: {JSON.stringify(windowPosition)}</p>
+      <div className="flex row center-v gap-8">
         <button
           onClick={async () => {
             const innerPosition = await appWindow.outerPosition()
@@ -104,7 +104,7 @@ const Demo: React.FC<DemoProps> = () => {
             positionInputYRef.current!.value = innerPosition.y + ''
           }}
         >
-          get window position
+          Get window position
         </button>
         X:
         <input type="text" style={{ width: 50 }} ref={positionInputXRef} />
@@ -117,13 +117,14 @@ const Demo: React.FC<DemoProps> = () => {
             )
           }}
         >
-          set position
+          Set position
         </button>
       </div>
 
       <div className="border top-1"></div>
 
-      <div className="flex row gap-8">
+      <div>Create Window</div>
+      <div className="flex row center-v gap-8">
         <button
           onClick={() => {
             $.window.createWindow({

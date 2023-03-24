@@ -37,11 +37,11 @@ export const TitlebarMenu: React.FC<TitlebarMenuProps> = ({ ...wrapProps }) => {
   return (
     <div {...wrapProps}>
       <MenuGroup>
-        <MenuItem icon="theme" noHover autoCloseMenu={false}>
+        <MenuItem className='pr-4' icon="theme" noHover autoCloseMenu={false}>
           <div className="flex row center-v">
             <div className="flex-1">
               <div>颜色主题</div>
-              <div className="fs-12 color-gray mt-2">
+              <div className="fs-12 color-light mt-2">
                 {
                   {
                     light: '亮色',
@@ -52,7 +52,7 @@ export const TitlebarMenu: React.FC<TitlebarMenuProps> = ({ ...wrapProps }) => {
               </div>
             </div>
 
-            <div className="flex row center-v gap-4 ml-12">
+            <div className="flex row center-v gap-8 ml-32">
               {themeConfig.map((item) => (
                 <button
                   key={item.name}
