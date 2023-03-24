@@ -2,17 +2,26 @@
 @import './theme.dark.less';
 
 :root {
+  --ac-color-background: rgba(var(--ac-color-background-rgb), 0.45);
+  --ac-color-primary-rgb: 80, 169, 211;
+
   --app-color-link: rgba(31, 136, 255, 0.8);
   --app-color-link-hover: rgb(58, 150, 254);
   --app-blur: 12px;
-  --ac-color-background: rgba(var(--ac-color-background-rgb), 0.45);
   --app-shadow: 2px 3px 8px 0px rgba(0, 0, 0, 0.1);
-  --app-radius: 8px;
+
+  --app-radius-sm: 4px;
+  --app-radius-md: 8px;
+  --app-radius-lg: 12px;
 
   --app-scrollbar-size: 11px;
   --app-scrollbar-thumb-bg: rgba(var(--ac-color-front-rgb), 0.25);
   --app-scrollbar-track-bg: rgba(var(--ac-color-front-rgb), 0.15);
   --app-scrollbar-thumb-hover-bg: rgba(var(--ac-color-front-rgb), 0.45);
+
+  --app-button-padding: 4px 12px;
+
+  --app-input-padding: 4px 8px;
 
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 14px;
@@ -57,6 +66,50 @@ button,
 img,
 .iconfont {
   user-select: none;
+}
+
+button {
+  background-color: var(--app-button-background);
+  border-radius: var(--app-radius-sm);
+  border: 1px solid var(--ac-color-border);
+  padding: var(--app-button-padding);
+  color: var(--app-button-color);
+  transition: all 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--app-button-hover-background);
+    color: var(--app-button-hover-color);
+  }
+}
+
+input,
+textarea {
+  background-color: var(--app-input-background);
+  color: var(--app-input-color);
+  border-radius: var(--app-radius-sm);
+  border: 1px solid var(--ac-color-border);
+  padding: var(--app-input-padding);
+  transition: all 0.2s;
+  outline: transparent solid 4px;
+  outline-offset: 3px;
+
+  &::placeholder {
+    color: var(--ac-color-text-disabled);
+  }
+
+  &:hover {
+    background-color: var(--app-input-hover-background);
+  }
+
+  &:focus {
+    background-color: var(--app-input-focus-background);
+    outline-width: 1px;
+    border-width: 1px;
+    border-color: var(--ac-color-border);
+    outline: 2px solid rgb(var(--ac-color-front-rgb), 0.45);
+    outline-offset: -1px;
+  }
 }
 
 ::-webkit-scrollbar {

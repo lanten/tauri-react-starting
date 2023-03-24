@@ -1,11 +1,18 @@
 import { ContextMenu, type ContextMenuProps } from './context-menu'
+import { openMenuPopup } from '../menu-popup'
 
-export interface OpenAppContextMenu extends ContextMenuProps {}
+export interface OpenAppContextMenuOptions extends ContextMenuProps {}
 
-export async function openAppContextMenu(options?: OpenAppContextMenu) {
-  return $.mountReactNode({
-    content: <ContextMenu {...options} />,
-    containerId: $.utils.uuid('ctx-menu-xxxxxx'),
-    // containerId: 'app-context-menu',
+export async function openAppContextMenu({
+  autoPositionByTarget,
+  animationType,
+  selectedText,
+  ...options
+}: OpenAppContextMenuOptions = {}) {
+  return openMenuPopup({
+    children: <ContextMenu selectedText={selectedText} {...options} />,
+    autoPositionByTarget,
+    animationType,
+    ...options,
   })
 }

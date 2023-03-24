@@ -40,15 +40,15 @@ const IconFontDemo: React.FC<IconFontDemoProps> = () => {
       <div className="flex row flex-wrap gap-md">
         {data?.glyphs?.map((item: IconFontJsonItem) => {
           return (
-            <div
+            <button
               key={item.icon_id}
-              className="iconfont-demo-item flex col center-v p-md cup br-10 bgh-background"
+              className="iconfont-demo-item flex col center-v p-md br-10"
               style={{ width: 128 }}
             >
               <i className={`iconfont fs-24 ${data.css_prefix_text}${item.font_class}`} />
               <div className="color-gray mt-12">{item.font_class}</div>
               <div className="color-light mt-4">{item.unicode}</div>
-            </div>
+            </button>
           )
         })}
       </div>

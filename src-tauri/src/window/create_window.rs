@@ -4,6 +4,9 @@ use tauri::{AppHandle, Manager, Window, WindowBuilder, WindowUrl};
 
 use crate::window::{config::WindowConfig, setup};
 
+// use super::super::tools::sys;
+use crate::tools::sys;
+
 /**
  * 打开一个窗口
  * 若已存在，则激活该窗口
@@ -41,10 +44,18 @@ pub fn create_window(
     url: PathBuf,
     config: Option<WindowConfig>,
 ) -> Window {
-    let conf = match config {
+    let mut conf = match config {
         Some(conf) => conf,
         None => WindowConfig::default(),
     };
+
+    let lower_than_win11 = sys::lower_than_win11();
+
+    println!("lower_than_win11 = {:?}", lower_than_win11);
+
+    if lower_than_win11 {
+        conf.blur = false; // win11 以下模糊背景将导致窗口卡顿
+    }
 
     let win_builder = WindowBuilder::new(handle, label, WindowUrl::App(url))
         .visible(conf.visible)
