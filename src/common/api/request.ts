@@ -21,11 +21,7 @@ export async function request<T extends RequestRes>(
   params?: RequestParams,
   optionsSource?: RequestOptions
 ): Promise<T> {
-  const options: RequestOptions = Object.assign(
-    {},
-    DEFAULT_CONFIG,
-    optionsSource
-  )
+  const options: RequestOptions = Object.assign({}, DEFAULT_CONFIG, optionsSource)
   const {
     method,
     checkStatus,

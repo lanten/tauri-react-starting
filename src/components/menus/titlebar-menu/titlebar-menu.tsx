@@ -70,6 +70,15 @@ export const TitlebarMenu: React.FC<TitlebarMenuProps> = ({ ...wrapProps }) => {
             </div>
           </div>
         </MenuItem>
+        <MenuItem split />
+        <MenuItem
+          icon="meh"
+          onClick={() => {
+            $.window.createWindow('IconfontDemo')
+          }}
+        >
+          IconFont
+        </MenuItem>
       </MenuGroup>
     </div>
   )
