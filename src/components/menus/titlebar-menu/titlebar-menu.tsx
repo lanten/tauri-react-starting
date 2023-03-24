@@ -41,7 +41,7 @@ export const TitlebarMenu: React.FC<TitlebarMenuProps> = ({ ...wrapProps }) => {
           <div className="flex row center-v">
             <div className="flex-1">
               <div>颜色主题</div>
-              <div className="fs-12 color-gray">
+              <div className="fs-12 color-gray mt-2">
                 {
                   {
                     light: '亮色',

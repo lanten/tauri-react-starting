@@ -91,13 +91,13 @@ export const AppTitlebar: React.FC<AppTitlebarProps> = ({
       <div className="titlebar-controller flex" data-tauri-drag-region>
         <div
           ref={titleBarMenuRef}
-          className="titlebar-btn"
+          className="titlebar-btn titlebar-menu-btn"
           title="菜单"
           onClick={() => {
             openTitlebarMenu({ target: titleBarMenuRef.current })
           }}
         >
-          <i className="iconfont icon-menu fs-13" />
+          <i className="iconfont icon-arrow-down fs-14" />
         </div>
 
         {/* 置顶按钮 */}

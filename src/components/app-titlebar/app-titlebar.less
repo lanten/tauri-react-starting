@@ -50,6 +50,18 @@
       }
     }
 
+    .titlebar-menu-btn {
+      .iconfont {
+        transition: transform 0.25s;
+      }
+      &.menu-focused {
+        background-color: var(--app-titlebar-btn-hover-background);
+        .iconfont {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
     .always-on-top {
       .icon-pin {
         transition: transform 0.2s;
