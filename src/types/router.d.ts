@@ -3,9 +3,6 @@ import type { NavigateFunctionCustom } from '@/common/routes/navigation'
 import type { AppTitlebarProps } from '@/components'
 import type { CreateOptions } from '@/common/window'
 
-/**
- * 路由配置接口
- */
 declare global {
   type RouteNames = 'Home' | 'Demo' | 'PageParams' | 'ErrorPage' | 'About' | 'IconfontDemo'
 
@@ -52,16 +49,12 @@ declare global {
     /** 窗口标题控制 */
     titlebar?: boolean | AppTitlebarProps
     /** 关键字 用于检索 */
-    keywords?: string
+    // keywords?: string[]
   }
 
   interface RouteConfig extends Omit<RouteProps, 'children'>, RouteOptions {
     path?: string
     element?: Promise<any> | RouteProps['element']
-    /**
-     * @{Promise<any>} 异步路由组件
-     * @{ RouteProps['element'] } 路由组件
-     */
     /** 重定向 */
     redirectTo?: string
     /**
@@ -71,7 +64,6 @@ declare global {
     routes?: RouteConfig[]
     /**
      * 父级路由
-     * 用于控制菜单层级
      * auto-routes 会根据 RouteConfig 层级自动注入，无需手动声明
      */
     parent?: RouteConfig

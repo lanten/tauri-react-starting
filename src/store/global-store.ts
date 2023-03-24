@@ -1,6 +1,6 @@
 import { Store } from './store'
 
-export interface GlobalStore {
+export interface GlobalStoreState {
   /** 当前所处路由 */
   currentRoute?: PageProps
   /** 页面标题 */
@@ -9,10 +9,10 @@ export interface GlobalStore {
   theme: 'light' | 'dark' | 'system'
 }
 
-export const globalStore = new Store<GlobalStore>({
+export const globalStore = new Store<GlobalStoreState>({
   currentRoute: undefined,
   title: process.env.APP_TITLE,
-  theme: 'system',
+  theme: localStorage.getItem('theme') as GlobalStoreState['theme'] || 'system',
 })
 
 export const useGlobalStore = globalStore.useStore.bind(globalStore)

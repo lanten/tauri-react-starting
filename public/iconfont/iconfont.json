@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "8953052",
+      "name": "moonset",
+      "font_class": "moon",
+      "unicode": "e820",
+      "unicode_decimal": 59424
+    },
+    {
+      "icon_id": "8953237",
+      "name": "sun",
+      "font_class": "sun",
+      "unicode": "e838",
+      "unicode_decimal": 59448
+    },
+    {
       "icon_id": "5831260",
       "name": "方框",
       "font_class": "rect",

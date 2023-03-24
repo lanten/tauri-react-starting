@@ -9,6 +9,7 @@ export interface MenuItemProps extends ReactBaseType {
   autoCloseMenu?: boolean
   split?: boolean
   disabled?: boolean
+  noHover?: boolean
   icon?: React.ReactNode
 }
 
@@ -17,12 +18,14 @@ export const MenuItem: React.FC<MenuItemProps> = ({
   icon,
   split,
   disabled,
+  noHover,
   onClick,
   children,
   ...wrapProps
 }) => {
   wrapProps.className = clsx(wrapProps.className, 'app-menu-item flex row center-v', {
     'border top-1 split': split,
+    'no-hover': noHover,
     disabled,
   })
 
@@ -47,7 +50,7 @@ export const MenuItem: React.FC<MenuItemProps> = ({
   return (
     <div onClick={handleClick} {...wrapProps}>
       {iconNode}
-      {split ? null : children}
+      <div className="flex-1">{split ? null : children}</div>
     </div>
   )
 }
