@@ -47,9 +47,5 @@ function flatRoutes(routes: RouteConfig | RouteConfig[], parent?: RouteConfig) {
  * @param conf
  */
 export function addRouteConfig(conf: RouteConfig) {
-  if (conf.title) {
-    conf.keywords = conf.keywords?.trim() || ''
-  }
-
   routes.set(conf.name, conf)
 }
