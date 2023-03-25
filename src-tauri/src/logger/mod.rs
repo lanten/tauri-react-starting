@@ -2,7 +2,7 @@
 // doc: https://docs.rs/simplelog/0.12.1/simplelog/
 
 use simplelog::{
-    ColorChoice, CombinedLogger, Config, ConfigBuilder, LevelFilter, TermLogger, TerminalMode,
+    ColorChoice, CombinedLogger, ConfigBuilder, LevelFilter, TermLogger, TerminalMode,
     WriteLogger,
 };
 
