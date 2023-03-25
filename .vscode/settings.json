@@ -2,6 +2,7 @@
   "create.defaultFolderTemplate": "react-component",
   "cSpell.words": [
     "aarch",
+    "simplelog",
     "Tempdir"
   ],
   "create.defaultFileTemplate": "tsx"

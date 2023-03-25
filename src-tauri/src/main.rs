@@ -6,14 +6,17 @@
 // use tauri::Manager;
 
 mod invoke;
+mod logger;
+mod tools;
 mod tray;
 mod window;
-mod tools;
 
 use tray::create_tray::{create_app_tray, tray_event_handler};
 use window::create_window;
 
 fn main() {
+    logger::init_logger();
+
     tauri::Builder::default()
         .system_tray(create_app_tray())
         .on_system_tray_event(tray_event_handler)

@@ -97,7 +97,7 @@ export const AppTitlebar: React.FC<AppTitlebarProps> = ({
             openTitlebarMenu({ target: titleBarMenuRef.current })
           }}
         >
-          <i className="iconfont icon-arrow-down fs-14" />
+          <i className="iconfont icon-setting fs-14" />
         </div>
 
         {/* 置顶按钮 */}

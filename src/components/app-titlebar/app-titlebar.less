@@ -44,6 +44,7 @@
       padding: 0 12px;
       transition: all 0.2s;
       color: var(--app-titlebar-btn-color);
+      box-sizing: border-box;
       &:hover {
         background-color: var(--app-titlebar-btn-hover-background);
       }
@@ -58,12 +59,13 @@
 
     .titlebar-menu-btn {
       .iconfont {
-        transition: transform 0.25s;
+        transition: transform 1s @animation_fade_out;
       }
       &.menu-focused {
+        padding-top: 8px;
         background-color: var(--app-titlebar-btn-hover-background);
         .iconfont {
-          transform: rotate(180deg);
+          transform: rotate(360deg);
         }
       }
     }

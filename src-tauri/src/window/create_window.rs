@@ -20,10 +20,9 @@ pub fn open_window(
 ) -> Window {
     let current_win = handle.get_window(&label);
 
-    println!("open_window: {:?}", &label);
-
     let target_win = match current_win {
         Some(win) => {
+            log::info!("Show Window: {}", &label);
             win.show().unwrap();
             win.set_focus().unwrap();
             return win;
@@ -51,11 +50,12 @@ pub fn create_window(
 
     let lower_than_win11 = sys::lower_than_win11();
 
-    println!("lower_than_win11 = {:?}", lower_than_win11);
-
     if lower_than_win11 {
+        log::info!("lower_than_win11!");
         conf.blur = false; // win11 以下模糊背景将导致窗口卡顿
     }
+
+    log::info!("Create Window: [{}] {:?}", &label, &conf);
 
     let win_builder = WindowBuilder::new(handle, label, WindowUrl::App(url))
         .visible(conf.visible)
