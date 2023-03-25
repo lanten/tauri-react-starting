@@ -22,7 +22,7 @@ pub fn open_window(
 
     let target_win = match current_win {
         Some(win) => {
-            log::info!("Show Window: {}", &label);
+            log::info!("Show Window: \"{}\"", &label);
             win.show().unwrap();
             win.set_focus().unwrap();
             return win;
@@ -55,7 +55,7 @@ pub fn create_window(
         conf.blur = false; // win11 以下模糊背景将导致窗口卡顿
     }
 
-    log::info!("Create Window: [{}] {:?}", &label, &conf);
+    log::info!("Create Window: \"{}\" {:?}", &label, &conf);
 
     let win_builder = WindowBuilder::new(handle, label, WindowUrl::App(url))
         .visible(conf.visible)
