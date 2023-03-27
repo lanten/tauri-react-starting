@@ -36,7 +36,7 @@ impl Default for WindowConfig {
             blur: false,
             shadow: true,
             visible: false,
-            transparent: true,
+            transparent: false,
             decorations: false,
         }
     }

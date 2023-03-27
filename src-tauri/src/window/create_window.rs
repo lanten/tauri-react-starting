@@ -50,9 +50,11 @@ pub fn create_window(
 
     let lower_than_win11 = sys::lower_than_win11();
 
-    if lower_than_win11 {
+    if lower_than_win11 && conf.blur {
         log::info!("lower_than_win11!");
-        conf.blur = false; // win11 以下模糊背景将导致窗口卡顿
+        // win11 以下模糊背景将导致窗口卡顿
+        conf.blur = false;
+        conf.transparent = false;
     }
 
     log::info!("Create Window: \"{}\" {:?}", &label, &conf);
@@ -74,7 +76,7 @@ pub fn create_window(
 
     // win.set_focus().unwrap(); // 创建后激活窗口，事实上这个步骤是自动的，无需手动设置
 
-    if conf.shadow && conf.transparent {
+    if conf.blur && conf.transparent {
         setup::vibrancy(&win);
     }
 
