@@ -4,7 +4,7 @@ import type { AppTitlebarProps } from '@/components'
 import type { CreateOptions } from '@/common/window'
 
 declare global {
-  type RouteNames = 'Home' | 'Demo' | 'PageParams' | 'ErrorPage' | 'About' | 'IconfontDemo'
+  type RouteNames = 'Home' | 'Demo' | 'PageParams' | 'ErrorPage' | 'About' | 'IconfontDemo' | 'SqliteDemo'
 
   /** 页面默认 props */
   interface PageProps<P = Record<string, unknown>, Q = Record<string, unknown>, LocationState = unknown>

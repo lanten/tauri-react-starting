@@ -8,18 +8,19 @@
 /** file list */
 const files = {
   tsx: (name) => {
-    const nameH = toCamel(name)
+    const nameR = removeSuffix(name)
+    const nameH = toCamel(nameR)
     return [
       `import React from 'react'`,
       ``,
-      `import './${name}.less'`,
+      `import './${nameR}.less'`,
       ``,
       `export interface ${nameH}Props {}`,
       ``,
       `const ${nameH}: React.FC<${nameH}Props> = () => {`,
       `  return (`,
-      `    <div className="${name}">`,
-      `      <p>component ${name} is created</p>`,
+      `    <div className="${nameR}">`,
+      `      <p>component ${nameR} is created</p>`,
       `    </div>`,
       `  )`,
       `}`,
@@ -29,14 +30,15 @@ const files = {
   },
 
   routes: (name) => {
-    const nameH = toCamel(name)
+    const nameR = removeSuffix(name)
+    const nameH = toCamel(nameR)
     return [
       `export const autoRoutes: RouteConfig[] = [`,
       `  {`,
       `    name: '${nameH}',`,
-      `    path: '/${name}',`,
+      `    path: '/${nameR}',`,
       `    title: '${nameH}',`,
-      `    element: import('./${name}'),`,
+      `    element: import('./${nameR}'),`,
       `  },`,
       `]`,
     ]
@@ -79,6 +81,15 @@ function toCamel(str, c = true) {
   let strH = str.replace(/([^\-])(?:\-+([^\-]))/g, (_, $1, $2) => $1 + $2.toUpperCase())
   if (c) strH = strH.slice(0, 1).toUpperCase() + strH.slice(1)
   return strH
+}
+
+/**
+ * 移除后缀名
+ * @param {String} str
+ * @returns
+ */
+function removeSuffix(str) {
+  return str.replace(/^(.+)\..*$/, '$1')
 }
 
 module.exports = { files, folders }

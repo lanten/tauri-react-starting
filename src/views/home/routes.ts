@@ -1,8 +1,9 @@
 export const autoRoutes: RouteConfig[] = [
   {
     name: 'Home',
-    element: import('./home'),
     path: '/',
+    redirectTo: '/sqlite-demo',
+    element: import('./home'),
     titlebar: {
       alwaysOnTopButton: true,
     },

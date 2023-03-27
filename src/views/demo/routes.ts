@@ -18,7 +18,14 @@ export const autoRoutes: RouteConfig[] = [
   {
     name: 'IconfontDemo',
     title: 'Iconfont Demo',
-    path: 'iconfont-demo',
+    path: '/iconfont-demo',
     element: import('./iconfont-demo'),
+  },
+
+  {
+    name: 'SqliteDemo',
+    title: 'Sqlite Demo',
+    path: '/sqlite-demo',
+    element: import('./sqlite'),
   },
 ]
