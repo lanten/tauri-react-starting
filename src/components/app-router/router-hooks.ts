@@ -13,12 +13,6 @@ export const beforeRouter: RouterHook = (props: PageProps) => {
   globalStore.dispatch({ currentRoute: nextProps, title })
   $.logger.info('BeforeRouter', location.href, { props: nextProps })
 
-  // TAG: 路由层权限控制 - 通过角色代码限制
-  // if (props.roleCode) {
-  //   toErrorPage(props, nextProps, 403)
-  //   return false
-  // }
-
   return true
 }
 
