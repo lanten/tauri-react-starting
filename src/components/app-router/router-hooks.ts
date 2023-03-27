@@ -11,6 +11,7 @@ export const beforeRouter: RouterHook = (props: PageProps) => {
   appWindow.setTitle(title)
 
   globalStore.dispatch({ currentRoute: nextProps, title })
+  $.logger.info('BeforeRouter', location.href, { props: nextProps })
 
   // TAG: 路由层权限控制 - 通过角色代码限制
   // if (props.roleCode) {

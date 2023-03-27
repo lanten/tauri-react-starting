@@ -90,53 +90,43 @@ export class Logger implements LoggerTrait {
   }
 
   log(message?: string, ...args: any[]): void {
-    this.baseLog('log', message, ...args)
+    this.mainLog('info', message, ...args)
+    this.devLog('log', message, ...args)
   }
 
   info(message?: string, ...args: any[]): void {
-    this.baseLog('info', message, ...args)
+    this.mainLog('info', message, ...args)
+    this.devLog('info', message, ...args)
   }
 
   warn(message?: string, ...args: any[]): void {
-    this.baseLog('warn', message, ...args)
+    this.mainLog('warn', message, ...args)
+    this.devLog('warn', message, ...args)
   }
 
   error(message?: string, ...args: any[]): void {
-    this.baseLog('error', message, ...args)
+    this.mainLog('error', message, ...args)
+    this.devLog('error', message, ...args)
   }
 
-  baseLog(level: LevelType, message?: string, ...detail: any[]) {
+  devLog(level: LevelType, message?: string, ...detail: any[]) {
     console[level].call(this, message, ...detail)
-    this.dataActions({ level, message, detail })
   }
 
-  dataActions({ level, message, detail, stack }: DataActionsOptions) {
-    if (this.saveLevel === 'off' && this.uploadLevel === 'off') return
+  mainLog(level: 'info' | 'warn' | 'error', message?: string, ...detail: any[]) {
+    let detailStr = ''
 
-    const data: ErrorData = {
-      level,
-      message,
-      stack: stack || new Error().stack || '未捕获的异常',
-      detail: typeof detail === 'object' ? JSON.stringify(detail) : detail,
-      time: Date.now(),
+    if (detail.length) {
+      detailStr = detail
+        .map((item) => {
+          if (typeof item === 'object') {
+            return JSON.stringify(item)
+          }
+          return item
+        })
+        .join(', ')
     }
 
-    if (LEVEL_ENUM[level] >= LEVEL_ENUM[this.saveLevel]) {
-      this.save(data)
-    }
-
-    if (LEVEL_ENUM[level] >= LEVEL_ENUM[this.uploadLevel]) {
-      this.upload(data)
-    }
-  }
-
-  /** 写入本地数据库 */
-  save(data: ErrorData) {
-    console.log('save TODO...', data)
-  }
-
-  /** 上传记录至服务器 */
-  upload(data: ErrorData) {
-    // TODO...
+    $.invoke(`log_${level}`, { detail: `${message} -> ${detailStr}` })
   }
 }

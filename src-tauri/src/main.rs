@@ -22,6 +22,9 @@ fn main() {
         .invoke_handler(tauri::generate_handler![
             invoke::demo::greet,
             invoke::window::open_window,
+            invoke::logger::log_info,
+            invoke::logger::log_warn,
+            invoke::logger::log_error,
         ])
         .build(tauri::generate_context!())
         .expect("error while running tauri application")
