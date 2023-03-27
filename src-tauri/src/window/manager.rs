@@ -1,10 +1,7 @@
 use std::path::PathBuf;
-
 use tauri::{AppHandle, Manager, Window, WindowBuilder, WindowUrl};
 
 use crate::window::{config::WindowConfig, setup};
-
-// use super::super::tools::sys;
 use crate::tools::sys;
 
 /**
@@ -80,7 +77,7 @@ pub fn create_window(
         setup::vibrancy(&win);
     }
 
-    if !conf.decorations {
+    if conf.shadow && !conf.decorations {
         setup::shadow(&win)
     }
 
@@ -95,6 +92,7 @@ pub fn open_main(handle: &AppHandle) -> Window {
         Some(WindowConfig {
             blur: true,
             transparent: true,
+            decorations: false,
             ..WindowConfig::default()
         }),
     )
@@ -108,6 +106,7 @@ pub fn open_demo(handle: &AppHandle) -> Window {
         Some(WindowConfig {
             blur: true,
             transparent: true,
+            decorations: false,
             ..WindowConfig::default()
         }),
     )
@@ -123,6 +122,7 @@ pub fn open_about(handle: &AppHandle) -> Window {
             height: 300.0,
             resizable: false,
             blur: true,
+            decorations: false,
             transparent: true,
             ..WindowConfig::default()
         }),

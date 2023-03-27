@@ -19,9 +19,9 @@ pub struct WindowConfig {
     pub decorations: bool,
     /** 窗口标题 */
     pub title: String,
-    /** 模糊背景 */
+    /** 模糊背景, 仅在透明窗口下生效 */
     pub blur: bool,
-    /** 显示窗口阴影，win 11 下附加圆角，仅在透明窗口下生效 */
+    /** 显示窗口阴影，win 11 下附加圆角，仅在无标题窗口下生效 */
     pub shadow: bool,
 }
 
@@ -37,7 +37,7 @@ impl Default for WindowConfig {
             shadow: true,
             visible: false,
             transparent: false,
-            decorations: false,
+            decorations: true,
         }
     }
 }
