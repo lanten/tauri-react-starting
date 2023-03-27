@@ -1,3 +1,3 @@
 pub mod config;
-pub mod create_window;
+pub mod manager;
 pub mod setup;

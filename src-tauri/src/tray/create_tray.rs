@@ -2,7 +2,7 @@ use tauri::{
     AppHandle, CustomMenuItem, SystemTray, SystemTrayEvent, SystemTrayMenu, SystemTrayMenuItem,
 };
 
-use crate::window::{config::WindowConfig, create_window};
+use crate::window::manager;
 
 pub fn create_app_tray_menu() -> SystemTrayMenu {
     let tray_menu = SystemTrayMenu::new()
@@ -25,7 +25,7 @@ pub fn create_app_tray() -> SystemTray {
     SystemTray::new().with_menu(create_app_tray_menu())
 }
 
-pub fn tray_event_handler(app: &AppHandle, event: SystemTrayEvent) {
+pub fn tray_event_handler(handle: &AppHandle, event: SystemTrayEvent) {
     match event {
         SystemTrayEvent::LeftClick {
             position: _,
@@ -47,27 +47,17 @@ pub fn tray_event_handler(app: &AppHandle, event: SystemTrayEvent) {
             ..
         } => {
             println!("system tray received a double click");
-            create_window::open_window(app, "Main".into(), "/".into(), None);
+            manager::open_main(handle);
         }
         SystemTrayEvent::MenuItemClick { id, .. } => match id.as_str() {
             "show_main_window" => {
-                create_window::open_window(app, "Main".into(), "/".into(), None);
+                manager::open_main(handle);
             }
             "show_demo_window" => {
-                create_window::open_window(app, "Demo".into(), "/demo".into(), None);
+                manager::open_demo(handle);
             }
             "about" => {
-                create_window::open_window(
-                    app,
-                    "About".into(),
-                    "/about".into(),
-                    Some(WindowConfig {
-                        width: 400.0,
-                        height: 300.0,
-                        resizable: false,
-                        ..WindowConfig::default()
-                    }),
-                );
+                manager::open_about(handle);
             }
             "quit" => {
                 std::process::exit(0);

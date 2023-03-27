@@ -13,6 +13,7 @@ initSystemInfo().then((systemInfo) => {
     appWindow.isVisible().then((isVisible) => {
       if (!isVisible) {
         appWindow.show()
+        appWindow.setFocus()
       }
     })
   })

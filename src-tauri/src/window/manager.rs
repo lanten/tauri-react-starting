@@ -86,3 +86,45 @@ pub fn create_window(
 
     return win;
 }
+
+pub fn open_main(handle: &AppHandle) -> Window {
+    open_window(
+        handle,
+        "Main".into(),
+        "/".into(),
+        Some(WindowConfig {
+            blur: true,
+            transparent: true,
+            ..WindowConfig::default()
+        }),
+    )
+}
+
+pub fn open_demo(handle: &AppHandle) -> Window {
+    open_window(
+        handle,
+        "Demo".into(),
+        "/demo".into(),
+        Some(WindowConfig {
+            blur: true,
+            transparent: true,
+            ..WindowConfig::default()
+        }),
+    )
+}
+
+pub fn open_about(handle: &AppHandle) -> Window {
+    open_window(
+        handle,
+        "About".into(),
+        "/about".into(),
+        Some(WindowConfig {
+            width: 400.0,
+            height: 300.0,
+            resizable: false,
+            blur: true,
+            transparent: true,
+            ..WindowConfig::default()
+        }),
+    )
+}

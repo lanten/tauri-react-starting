@@ -12,7 +12,6 @@ mod tray;
 mod window;
 
 use tray::create_tray::{create_app_tray, tray_event_handler};
-use window::create_window;
 
 fn main() {
     logger::init_logger();
@@ -22,14 +21,14 @@ fn main() {
         .on_system_tray_event(tray_event_handler)
         .invoke_handler(tauri::generate_handler![
             invoke::demo::greet,
-            invoke::invoke_window::open_window,
+            invoke::window::open_window,
         ])
         .build(tauri::generate_context!())
         .expect("error while running tauri application")
         .run(|app_handle, event| match event {
             tauri::RunEvent::Ready => {
                 // 打开主窗口
-                create_window::open_window(app_handle, "Main".into(), "/".into(), None);
+                window::manager::open_main(app_handle);
             }
 
             // tauri::RunEvent::WindowEvent { label, event, .. } => {

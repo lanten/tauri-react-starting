@@ -1,4 +1,4 @@
-use crate::window::{config::WindowConfig, create_window};
+use crate::window::{config::WindowConfig, manager};
 
 /// 在 windows 中必须是异步函数，否则窗口无法创建
 #[cfg(windows)]
@@ -32,7 +32,7 @@ pub async fn open_window(
         shadow,
     });
 
-    create_window::open_window(&app_handle, label.into(), url.into(), conf);
+    manager::open_window(&app_handle, label.into(), url.into(), conf);
 
     // 必须是异步返回，否则创建操作在 windows 中会挂起无响应 see: https://github.com/tauri-apps/tauri/issues/4121
     return Ok(());
@@ -70,5 +70,5 @@ pub fn open_window(
         shadow,
     });
 
-    create_window::open_window(&app_handle, label.into(), url.into(), conf);
+    manager::open_window(&app_handle, label.into(), url.into(), conf);
 }
