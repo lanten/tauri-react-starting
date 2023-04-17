@@ -25,7 +25,7 @@ pub fn init_logger() {
 
     let config = ConfigBuilder::new()
         .set_time_format_custom(format_description!(
-            "[year]-[month]-[day] [hour]:[minute]:[second].[subsecond]"
+            "[year]-[month]-[day] [hour]:[minute]:[second].[subsecond digits:3]"
         ))
         .build();
 
