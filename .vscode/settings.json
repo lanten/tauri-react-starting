@@ -1,5 +1,10 @@
 {
-  "create.defaultFolderTemplate": "react-component",
-  "cSpell.words": ["aarch", "libsqlite", "rusqlite", "simplelog", "Tempdir"],
-  "create.defaultFileTemplate": "tsx"
+  "cSpell.words": [
+    "aarch",
+    "libsqlite",
+    "rusqlite",
+    "simplelog",
+    "Tempdir"
+  ],
+  "rust-analyzer.showUnlinkedFileNotification": false
 }

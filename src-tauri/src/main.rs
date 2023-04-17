@@ -7,7 +7,6 @@
 
 mod invoke;
 mod logger;
-mod sql;
 mod tools;
 mod tray;
 mod window;
@@ -18,7 +17,6 @@ fn main() {
     logger::init_logger();
 
     tauri::Builder::default()
-        .plugin(sql::sqlite_plugin::init())
         .system_tray(create_app_tray())
         .on_system_tray_event(tray_event_handler)
         .invoke_handler(tauri::generate_handler![
