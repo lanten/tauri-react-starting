@@ -2,7 +2,7 @@ use tauri::Window;
 use window_shadows::set_shadow;
 
 #[cfg(target_os = "windows")]
-use window_vibrancy::apply_acrylic;
+use window_vibrancy::apply_mica;
 
 #[cfg(target_os = "macos")]
 use window_vibrancy::{apply_vibrancy, NSVisualEffectMaterial};
@@ -14,7 +14,7 @@ pub fn vibrancy(win: &Window) {
         .expect("Unsupported platform! 'apply_vibrancy' is only supported on macOS");
 
     #[cfg(target_os = "windows")]
-    apply_acrylic(&win, None)
+    apply_mica(&win)
         .expect("Unsupported platform! 'apply_acrylic' is only supported on Windows");
 }
 
