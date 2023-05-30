@@ -39,6 +39,7 @@ fn main() {
             //         // 阻止关闭主窗口
             //         match event {
             //             tauri::WindowEvent::CloseRequested { api, .. } => {
+            //                 println!("WindowEvent: {:?}", label);
             //                 api.prevent_close();
             //                 app_handle.get_window("Main").map(|win| win.hide());
             //             }

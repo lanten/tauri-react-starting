@@ -14,6 +14,8 @@ export interface AppTitlebarProps extends ReactDivProps {
   maximizable?: boolean
   /** 是否显示关闭按钮 */
   closable?: boolean
+  /** 关闭按钮的行为, 默认为 'close' */
+  closeType?: 'hide' | 'close'
   /** 是否显示置顶按钮, 设为 'activated' 则默认为激活状态 */
   alwaysOnTopButton?: boolean | 'activated' | 'activated-hide'
 }
@@ -23,6 +25,7 @@ export const AppTitlebar: React.FC<AppTitlebarProps> = ({
   maximizable = true,
   closable = true,
   alwaysOnTopButton = false,
+  closeType = 'close',
   ...wrapProps
 }) => {
   const titleBarMenuRef = React.useRef<HTMLDivElement>(null)
@@ -131,7 +134,17 @@ export const AppTitlebar: React.FC<AppTitlebarProps> = ({
 
         {/* 关闭按钮 */}
         {closable && (
-          <div className="titlebar-btn titlebar-btn-close" title="关闭窗口" onClick={() => appWindow.close()}>
+          <div
+            className="titlebar-btn titlebar-btn-close"
+            title="关闭窗口"
+            onClick={() => {
+              if (closeType === 'close') {
+                appWindow.close()
+              } else {
+                appWindow.hide()
+              }
+            }}
+          >
             <i className="iconfont icon-close fs-16 mr-2" />
           </div>
         )}

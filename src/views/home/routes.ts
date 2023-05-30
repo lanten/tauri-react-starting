@@ -6,6 +6,7 @@ export const autoRoutes: RouteConfig[] = [
     element: import('./home'),
     titlebar: {
       alwaysOnTopButton: true,
+      closeType: 'hide',
     },
   },
 ]
