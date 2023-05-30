@@ -90,9 +90,9 @@ pub fn open_main(handle: &AppHandle) -> Window {
         "Main".into(),
         "/".into(),
         Some(WindowConfig {
-            // blur: true,
-            // transparent: true,
-            // decorations: false,
+            blur: true,
+            transparent: true,
+            decorations: false,
             ..WindowConfig::default()
         }),
     )
